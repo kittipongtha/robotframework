@@ -1,6 +1,9 @@
 import  openpyxl
+import  os
 
-wb = openpyxl.load_workbook('C:/Users/kittipong.t/Desktop/practice/practice-robotframework/test_data/test_scenario_krungsri.xlsx')
+# file= open(os.path.expanduser(""))
+
+wb = openpyxl.load_workbook('/test_data/test_scenario_krungsri.xlsx')
 sheet = wb['testdata-t001']
 
 test_case_name = ['test_case_name']
