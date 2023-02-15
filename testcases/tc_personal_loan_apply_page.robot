@@ -1,7 +1,5 @@
 *** Settings ***
 Resource    ../import/import_personal_loan_apply_page.resource
-# Test Setup    Open personal loan apply page
-# Test Teardown    Close Browser
 
 *** Test Cases ***
 Invalid personal loan apply form
@@ -13,11 +11,11 @@ Invalid personal loan apply form
     @{get_expected}=    excel_handling.Get Data Personal Loan Apply Page    expected
     @{get_occupation}=    excel_handling.Get Data Personal Loan Apply Page    occupation
     @{get_salary}=    excel_handling.Get Data Personal Loan Apply Page    salary
-    # [Template]
     FOR    ${name}    ${surname}    ${identification_number}    ${mobile}    ${email}    
     ...    ${expected}    ${occupation}    ${salary}    IN ZIP    
-    ...    ${get_name}    ${get_surname}  @{get_identification_number}  @{get_mobile}  @{get_email}  @{get_expected}  @{get_occupation}  @{get_salary}
-        Log    ${occupation}
+    ...    ${get_name}    ${get_surname}    ${get_identification_number}    ${get_mobile}    ${get_email}    
+    ...    ${get_expected}    ${get_occupation}    ${get_salary}
+        Set Test Message    ${name}
         Open personal loan apply page
         Fill In Loan Apply Form    
         ...    ${name}   
@@ -31,13 +29,4 @@ Invalid personal loan apply form
         Close Browser
     END
 
-# Empty name    
-# ...    ${empty}    
-# ...    test    
-# ...    9476261380244    
-# ...    0612345678    
-# ...    test@test.com    
-# ...    กรุณากรอกชื่อ    
-# ...    พนักงานประจำ   
-# ...    มากกว่า 50,000 บาท
 

@@ -8,19 +8,22 @@ Open personal loan apply page
 
 Fill in loan apply form
     [Arguments]    ${name}    ${surname}    ${idnumber}    ${mobile}    ${email}    ${expected}    
-    ...    ${select_occupation}    ${select_salary}    
-    Log    ${name}|${surname}|${idnumber}|${mobile}|${email}|${expected}|${select_occupation}|${select_salary}  
+    ...    ${select_occupation}    ${select_salary}   
     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${btn_accept_pdpa}
     Run Keyword And Ignore Error    Click Button    ${btn_accept_pdpa}
     Wait Until Element Is Visible    ${loan_apply_form}[txt_name]    
-    Input Text    ${loan_apply_form}[txt_name]    ${name}    True
-    Input Text    ${loan_apply_form}[txt_surname]    ${surname}    True
-    Input Text    ${loan_apply_form}[txt_idnumber]    ${idnumber}    True
-    Input Text    ${loan_apply_form}[txt_mobile]    ${mobile}    True
+    Run Keyword If    "${name}" != "None"    
+    ...    Input Text    ${loan_apply_form}[txt_name]    ${name}    True
+    Run Keyword If    "${surname}" != "None"    
+    ...    Input Text    ${loan_apply_form}[txt_surname]    ${surname}    True
+    Run Keyword If    "${idnumber}" != "None"    
+    ...    Input Text    ${loan_apply_form}[txt_idnumber]    ${idnumber}    True
+    Run Keyword If    "${mobile}" != "None"
+    ...    Input Text    ${loan_apply_form}[txt_mobile]    ${mobile}    True
     Input Text    ${loan_apply_form}[txt_email]    ${email}    True
-    Run Keyword If    "${select_occupation}" != "${empty}"  
+    Run Keyword If    "${select_occupation}" != "None"
     ...    Selected ocupation    ${select_occupation}
-    Run Keyword If    "${select_salary}" != "${empty}"
+    Run Keyword If    "${select_salary}" != "None"
     ...    Selected salary    ${select_salary}
     Click Button    ${loan_apply_form}[btn_submit]
     ${replace_data_expected}=    Replace String    
