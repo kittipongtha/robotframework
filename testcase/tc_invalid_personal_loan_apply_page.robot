@@ -2,7 +2,7 @@
 Resource    ../import/import_personal_loan_apply_page.resource
 
 *** Test Cases ***
-Invalid personal loan apply form
+Invalid personal loan apply page
     @{get_name}=    excel_handling.Get Data Personal Loan Apply Page    name
     @{get_surname}=    excel_handling.Get Data Personal Loan Apply Page    surname
     @{get_identification_number}=    excel_handling.Get Data Personal Loan Apply Page    identification_number
@@ -15,7 +15,6 @@ Invalid personal loan apply form
     ...    ${expected}    ${occupation}    ${salary}    IN ZIP    
     ...    ${get_name}    ${get_surname}    ${get_identification_number}    ${get_mobile}    ${get_email}    
     ...    ${get_expected}    ${get_occupation}    ${get_salary}
-        Set Test Message    ${name}
         Open personal loan apply page
         Fill In Loan Apply Form    
         ...    ${name}   
