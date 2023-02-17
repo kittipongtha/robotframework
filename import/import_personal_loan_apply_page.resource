@@ -8,7 +8,7 @@ Library    ../test_data/excel_handling.py
 Resource    ../common/common.resource
 
 #variables
-Resource    ../variables/var_personal_loan_apply_page/var_personal_loan_apply_page.resource
+Resource    ../variable/var_personal_loan_apply_page/var_personal_loan_apply_page.resource
 
 #keywords
-Resource    ../keywords/kw_personal_loan_apply_page.resource
+Resource    ../keyword/kw_personal_loan_apply_page.resource
