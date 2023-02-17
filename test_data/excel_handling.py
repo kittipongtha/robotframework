@@ -1,4 +1,5 @@
 import  openpyxl
+import  os
 
 wb = openpyxl.load_workbook('./test_data/test_scenario_krungsri.xlsx')
 sheet = wb['testdata-t001']
